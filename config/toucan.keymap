@@ -131,7 +131,7 @@
 
 
         layer_Nav {
-                  display-name = "NAV";
+                  display-name = "NAVI";
             bindings = <
 //    ┌─────────────────────────────┬───────────────────────────┬───────────────────────────┬───────────────────────────┬─────────┬───────────────────────────┐               ┌──────────────────┬──────────────────┬────────────────┬──────────────────┬───────────────────────────┬─────┐
 //    │ lgui(lctl(lalt(lsft(tab)))) │ lgui(lctl(lalt(lsft(0)))) │ lgui(lctl(lalt(lsft(W)))) │ lgui(lctl(lalt(lsft(D)))) │         │ lgui(lctl(lalt(lsft(T)))) │               │ lalt(lsft(left)) │ lalt(lsft(down)) │ lalt(lsft(up)) │ lalt(lsft(rght)) │                           │     │
