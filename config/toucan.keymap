@@ -15,6 +15,7 @@
 #define LAYER_Raycast 9
 #define LAYER_Letters 10
 #define LAYER_Obs 11
+#define LAYER_Bluetooth 12
 
 / {
     behaviors {
@@ -165,19 +166,19 @@
         layer_Subl {
             display-name = "SUBL";
             bindings = <
-//    ┌─────┬─────┬────────────────────┬─────┬────────────────────┬──────────────────┐               ┌─────┬─────┬─────┬────────────────┬─────┬─────┐
-//    │     │     │                    │     │ mo laltYER_Raycast │ mo laltYER_Sesss │               │     │     │     │ mo laltYER_Obs │     │     │
-//    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
-//    │     │     │ mo laltYER_Letters │     │                    │                  │               │     │     │     │                │     │     │
-//    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
-//    │     │     │                    │     │                    │                  │               │     │     │     │                │     │     │
-//    └─────┴─────┴────────────────────┴─────┼────────────────────┼──────────────────┼─────┐   ┌─────┼─────┼─────┼─────┴────────────────┴─────┴─────┘
-//                                           │                    │ mo laltYER_Apps  │     │   │     │     │     │
-//                                           └────────────────────┴──────────────────┴─────┘   └─────┴─────┴─────┘
-  &trans   &trans   &trans              &trans   &mo LAYER_Raycast   &mo LAYER_Sesss                         &trans   &trans   &trans   &mo LAYER_Obs   &trans   &trans
-  &trans   &trans   &mo LAYER_Letters   &trans   &trans              &trans                                  &trans   &trans   &trans   &trans          &trans   &trans
-  &trans   &trans   &trans              &trans   &trans              &trans                                  &trans   &trans   &trans   &trans          &trans   &trans
-                                                 &trans              &mo LAYER_Apps    &trans       &trans   &trans   &trans
+//    ┌─────┬─────┬────────────────────┬─────┬────────────────────┬──────────────────────┐               ┌─────┬─────┬─────┬────────────────┬─────┬─────┐
+//    │     │     │                    │     │ mo laltYER_Raycast │   mo laltYER_Sesss   │               │     │     │     │ mo laltYER_Obs │     │     │
+//    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
+//    │     │     │ mo laltYER_Letters │     │                    │                      │               │     │     │     │                │     │     │
+//    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
+//    │     │     │                    │     │                    │ mo laltYER_Bluetooth │               │     │     │     │                │     │     │
+//    └─────┴─────┴────────────────────┴─────┼────────────────────┼──────────────────────┼─────┐   ┌─────┼─────┼─────┼─────┴────────────────┴─────┴─────┘
+//                                           │                    │   mo laltYER_Apps    │     │   │     │     │     │
+//                                           └────────────────────┴──────────────────────┴─────┘   └─────┴─────┴─────┘
+  &trans   &trans   &trans              &trans   &mo LAYER_Raycast   &mo LAYER_Sesss                             &trans   &trans   &trans   &mo LAYER_Obs   &trans   &trans
+  &trans   &trans   &mo LAYER_Letters   &trans   &trans              &trans                                      &trans   &trans   &trans   &trans          &trans   &trans
+  &trans   &trans   &trans              &trans   &trans              &mo LAYER_Bluetooth                         &trans   &trans   &trans   &trans          &trans   &trans
+                                                 &trans              &mo LAYER_Apps        &trans       &trans   &trans   &trans
             >;
         };
 
@@ -318,6 +319,24 @@
         };
 
 
+          layer_Bluetooth {
+            display-name = "BLUE";
+            bindings = <
+//    ┌─────┬─────┬─────┬─────┬─────┬─────┐               ┌────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+//    │     │     │     │     │     │     │               │        │          │          │          │          │          │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤               ├────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//    │     │     │     │     │     │     │               │ bt_clr │ bt_sel 0 │ bt_sel 1 │ bt_sel 2 │ bt_sel 3 │ bt_sel 4 │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤               ├────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//    │     │     │     │     │     │     │               │        │          │          │          │          │          │
+//    └─────┴─────┴─────┴─────┼─────┼─────┼─────┐   ┌─────┼────────┼──────────┼──────────┴──────────┴──────────┴──────────┘
+//                            │     │     │     │   │     │        │          │
+//                            └─────┴─────┴─────┘   └─────┴────────┴──────────┘
+  &trans   &trans   &trans   &trans   &trans   &trans                         &trans       &trans         &trans         &trans         &trans         &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                         &bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
+  &trans   &trans   &trans   &trans   &trans   &trans                         &trans       &trans         &trans         &trans         &trans         &trans
+                                      &trans   &trans   &trans       &trans   &trans       &trans
+            >;
+        };
 
 
     };
