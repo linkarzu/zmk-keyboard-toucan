@@ -109,11 +109,13 @@
         device = <&glidepoint_split>;
         input-processors = <&zip_xy_scaler 250 100>;
         scroller {
-            layers = <1 2>;
+            layers = <2>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5
-                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+                // Inverting Y scroll as in macOS. By default INPUT_TRANSFORM_X_INVERT was applied
+                &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
+                // &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
             >;
         };
     };
