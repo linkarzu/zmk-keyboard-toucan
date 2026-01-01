@@ -3,6 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+// Adding pointing.h to be able to right and middle click
+// https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
+#include <dt-bindings/zmk/pointing.h>
+
 #define LAYER_Base 0
 #define LAYER_Windows 1
 #define LAYER_Nav 2
