@@ -303,6 +303,7 @@
             >;
         };
 
+        // Test comment
         layer_Obs {
             display-name = "OBS";
             bindings = <
