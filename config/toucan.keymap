@@ -20,6 +20,7 @@
 #define LAYER_Letters 10
 #define LAYER_Obs 11
 #define LAYER_Bluetooth 12
+#define LAYER_Obspos 13
 
 / {
     behaviors {
@@ -308,7 +309,7 @@
             display-name = "OBS";
             bindings = <
 //    ┌─────┬─────────────────┬──────────────────────┬──────────────────────┬──────────────────────┬──────────────────────┐               ┌──────────────────────┬──────────────────────┬──────────────────────┬──────────────────────┬──────────────────────┬─────┐
-//    │     │ lsft(lalt(f1))  │    lsft(lalt(f2))    │    lsft(lalt(f3))    │    lsft(lalt(f4))    │    lsft(lalt(f5))    │               │    lsft(lalt(f6))    │    lsft(lalt(f7))    │    lsft(lalt(f8))    │    lsft(lalt(f9))    │   lsft(lalt(f10))    │     │
+//    │     │ lsft(lalt(f1))  │    lsft(lalt(f2))    │    lsft(lalt(f3))    │    lsft(lalt(f4))    │    lsft(lalt(f5))    │               │    lsft(lalt(f6))    │    lsft(lalt(f7))    │    lsft(lalt(f8))    │                      │  mo laltYER_Obspos   │     │
 //    ├─────┼─────────────────┼──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────┤               ├──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────┼─────┤
 //    │     │ lsft(lalt(f11)) │   lsft(lalt(f12))    │   lsft(lalt(f13))    │   lsft(lalt(f16))    │   lsft(lalt(f17))    │               │   lsft(lalt(f18))    │   lsft(lalt(f19))    │   lsft(lgui(f16))    │   lsft(lgui(f17))    │   lsft(lgui(f18))    │     │
 //    ├─────┼─────────────────┼──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────┤               ├──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────┼─────┤
@@ -316,7 +317,7 @@
 //    └─────┴─────────────────┴──────────────────────┴──────────────────────┼──────────────────────┼──────────────────────┼─────┐   ┌─────┼──────────────────────┼──────────────────────┼──────────────────────┴──────────────────────┴──────────────────────┴─────┘
 //                                                                          │                      │                      │     │   │     │                      │                      │
 //                                                                          └──────────────────────┴──────────────────────┴─────┘   └─────┴──────────────────────┴──────────────────────┘
-  &trans   &kp LS(LA(F1))    &kp LS(LA(F2))       &kp LS(LA(F3))       &kp LS(LA(F4))       &kp LS(LA(F5))                             &kp LS(LA(F6))       &kp LS(LA(F7))       &kp LS(LA(F8))       &kp LS(LA(F9))       &kp LS(LA(F10))      &trans
+  &trans   &kp LS(LA(F1))    &kp LS(LA(F2))       &kp LS(LA(F3))       &kp LS(LA(F4))       &kp LS(LA(F5))                             &kp LS(LA(F6))       &kp LS(LA(F7))       &kp LS(LA(F8))       &trans               &mo LAYER_Obspos     &trans
   &trans   &kp LS(LA(F11))   &kp LS(LA(F12))      &kp LS(LA(F13))      &kp LS(LA(F16))      &kp LS(LA(F17))                            &kp LS(LA(F18))      &kp LS(LA(F19))      &kp LS(LG(F16))      &kp LS(LG(F17))      &kp LS(LG(F18))      &trans
   &trans   &kp LS(LG(F19))   &kp LS(LA(LC(F1)))   &kp LS(LA(LC(F2)))   &kp LS(LA(LC(F3)))   &kp LS(LA(LC(F4)))                         &kp LS(LA(LC(F5)))   &kp LS(LA(LC(F6)))   &kp LS(LA(LC(F7)))   &kp LS(LA(LC(F8)))   &kp LS(LA(LC(F9)))   &trans
                                                                        &trans               &trans               &trans       &trans   &trans               &trans
@@ -340,6 +341,26 @@
   &trans   &trans   &trans   &trans   &trans   &trans                         &bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
   &trans   &trans   &trans   &trans   &trans   &trans                         &trans       &trans         &trans         &trans         &trans         &trans
                                       &trans   &trans   &trans       &trans   &trans       &trans
+            >;
+        };
+
+      
+        layer_Obspos {
+            display-name = "OBP";
+            bindings = <
+//    ┌─────┬────────────────┬─────────────────┬──────────────────────┬──────────────────────┬─────┐               ┌─────┬─────┬─────┬─────┬─────┬─────┐
+//    │     │                │                 │                      │                      │     │               │     │     │     │     │     │     │
+//    ├─────┼────────────────┼─────────────────┼──────────────────────┼──────────────────────┼─────┤               ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │ lsft(lalt(f9)) │ lsft(lalt(f10)) │ lsft(lalt(lgui(f8))) │ lsft(lalt(lgui(f9))) │     │               │     │     │     │     │     │     │
+//    ├─────┼────────────────┼─────────────────┼──────────────────────┼──────────────────────┼─────┤               ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │                │                 │                      │                      │     │               │     │     │     │     │     │     │
+//    └─────┴────────────────┴─────────────────┴──────────────────────┼──────────────────────┼─────┼─────┐   ┌─────┼─────┼─────┼─────┴─────┴─────┴─────┘
+//                                                                    │                      │     │     │   │     │     │     │
+//                                                                    └──────────────────────┴─────┴─────┘   └─────┴─────┴─────┘
+  &trans   &trans           &trans            &trans               &trans               &trans                         &trans   &trans   &trans   &trans   &trans   &trans
+  &trans   &kp LS(LA(F9))   &kp LS(LA(F10))   &kp LS(LA(LG(F8)))   &kp LS(LA(LG(F9)))   &trans                         &trans   &trans   &trans   &trans   &trans   &trans
+  &trans   &trans           &trans            &trans               &trans               &trans                         &trans   &trans   &trans   &trans   &trans   &trans
+                                                                   &trans               &trans   &trans       &trans   &trans   &trans
             >;
         };
 
