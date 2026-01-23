@@ -21,6 +21,7 @@
 #define LAYER_Obs 11
 #define LAYER_Bluetooth 12
 #define LAYER_Obspos 13
+#define LAYER_Work 14
 
 / {
     behaviors {
@@ -172,7 +173,7 @@
             display-name = "SUBL";
             bindings = <
 //    ┌─────┬─────┬────────────────────┬─────┬────────────────────┬──────────────────────┐               ┌─────┬─────┬─────┬────────────────┬─────┬─────┐
-//    │     │     │                    │     │ mo laltYER_Raycast │   mo laltYER_Sesss   │               │     │     │     │ mo laltYER_Obs │     │     │
+//    │     │     │  mo laltYER_Work   │     │ mo laltYER_Raycast │   mo laltYER_Sesss   │               │     │     │     │ mo laltYER_Obs │     │     │
 //    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
 //    │     │     │ mo laltYER_Letters │     │                    │                      │               │     │     │     │                │     │     │
 //    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
@@ -180,7 +181,7 @@
 //    └─────┴─────┴────────────────────┴─────┼────────────────────┼──────────────────────┼─────┐   ┌─────┼─────┼─────┼─────┴────────────────┴─────┴─────┘
 //                                           │                    │   mo laltYER_Apps    │     │   │     │     │     │
 //                                           └────────────────────┴──────────────────────┴─────┘   └─────┴─────┴─────┘
-  &trans   &trans   &trans              &trans   &mo LAYER_Raycast   &mo LAYER_Sesss                             &trans   &trans   &trans   &mo LAYER_Obs   &trans   &trans
+  &trans   &trans   &mo LAYER_Work      &trans   &mo LAYER_Raycast   &mo LAYER_Sesss                             &trans   &trans   &trans   &mo LAYER_Obs   &trans   &trans
   &trans   &trans   &mo LAYER_Letters   &trans   &trans              &trans                                      &trans   &trans   &trans   &trans          &trans   &trans
   &trans   &trans   &trans              &trans   &trans              &mo LAYER_Bluetooth                         &trans   &trans   &trans   &trans          &trans   &trans
                                                  &trans              &mo LAYER_Apps        &trans       &trans   &trans   &trans
@@ -364,6 +365,25 @@
             >;
         };
 
+
+        layer_Work {
+            display-name = "WRK";
+            bindings = <
+//    ┌─────┬─────┬─────┬─────┬───────────────────────┬─────┐               ┌─────┬───────────────────────┬───────────────────────┬───────────────────────┬───────────────────────┬─────┐
+//    │     │     │     │     │                       │     │               │     │                       │                       │ lsft(lalt(lgui(f12))) │                       │     │
+//    ├─────┼─────┼─────┼─────┼───────────────────────┼─────┤               ├─────┼───────────────────────┼───────────────────────┼───────────────────────┼───────────────────────┼─────┤
+//    │     │     │     │     │ lsft(lalt(lgui(f18))) │     │               │     │ lsft(lalt(lgui(f16))) │ lsft(lalt(lgui(f11))) │                       │ lsft(lalt(lgui(f17))) │     │
+//    ├─────┼─────┼─────┼─────┼───────────────────────┼─────┤               ├─────┼───────────────────────┼───────────────────────┼───────────────────────┼───────────────────────┼─────┤
+//    │     │     │     │     │                       │     │               │     │ lsft(lalt(lgui(f13))) │                       │                       │                       │     │
+//    └─────┴─────┴─────┴─────┼───────────────────────┼─────┼─────┐   ┌─────┼─────┼───────────────────────┼───────────────────────┴───────────────────────┴───────────────────────┴─────┘
+//                            │                       │     │     │   │     │     │                       │
+//                            └───────────────────────┴─────┴─────┘   └─────┴─────┴───────────────────────┘
+  &trans   &trans   &trans   &trans   &trans                &trans                         &trans   &trans                &trans                &kp LS(LA(LG(F12)))   &trans                &trans
+  &trans   &trans   &trans   &trans   &kp LS(LA(LG(F18)))   &trans                         &trans   &kp LS(LA(LG(F16)))   &kp LS(LA(LG(F11)))   &trans                &kp LS(LA(LG(F17)))   &trans
+  &trans   &trans   &trans   &trans   &trans                &trans                         &trans   &kp LS(LA(LG(F13)))   &trans                &trans                &trans                &trans
+                                      &trans                &trans   &trans       &trans   &trans   &trans
+            >;
+        };
 
     };
 };
