@@ -115,7 +115,7 @@
         compatible = "zmk,keymap";
 
         layer_macOS {
-            display-name = "macOS";
+            display-name = "mac";
             bindings = <
 //    ┌────────────────────┬────────────────────┬────────────────────────┬──────────────────┬──────────────────────────┬─────────────────────────┐               ┌─────────────────────┬─────────────────────────┬───────────────┬────────────────────────────────────┬───────────────┬──────┐
 //    │   &my_mt ent tab   │         Q          │ &my_lt laltYER_Systm W │ &my_mt lalt(E) E │ &my_mt lctl(lgui(f19)) R │ &my_mt lgui(lalt(f1)) T │               │          Y          │    &my_mt lgui(Z) U     │       I       │ &my_mt lgui(lctl(lalt(lsft(Z)))) O │       P       │  \   │
