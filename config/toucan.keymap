@@ -83,6 +83,29 @@
             bindings = <&kp>, <&kp>;
         };
 
+        h_third_app: h_third_app {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <300>;
+            bindings = <&third_app>, <&kp>;
+        };
+
+    };
+
+    macros {
+        third_app: third_app {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp TAB &kp TAB>
+                , <&macro_release &kp LGUI>
+                ;
+        };
+
     };
 };
 
@@ -104,7 +127,7 @@
 //                                                                                          │                          │  lt laltYER_Symb bspc   │ spc │   │ spc │ lt laltYER_Subl ent │                         │
 //                                                                                          └──────────────────────────┴─────────────────────────┴─────┘   └─────┴─────────────────────┴─────────────────────────┘
   &my_mt RET TAB      &kp Q              &my_lt LAYER_Systm W   &my_mt LA(E) E   &my_mt LC(LG(F19)) R   &my_mt LG(LA(F1)) T                               &kp Y                &my_mt LG(Z) U        &kp I           &my_mt LG(LC(LA(LS(Z)))) O     &kp P               &kp BSLH
-  &lt LAYER_Nav ESC   &hrm_l LCTRL A     &hrm_l LSHFT S         &hrm_l LALT D    &hrm_l LGUI F          &my_mt LC(Z) G                                    &kp H                &hrm_r RGUI J         &hrm_r RALT K   &hrm_r RSHFT L                 &hrm_r RCTRL SEMI   &kp SQT
+  &lt LAYER_Nav ESC   &hrm_l LCTRL A     &hrm_l LSHFT S         &hrm_l LALT D    &hrm_l LGUI F          &my_mt LC(Z) G                                    &h_third_app 0 H     &hrm_r RGUI J         &hrm_r RALT K   &hrm_r RSHFT L                 &hrm_r RCTRL SEMI   &kp SQT
   &kp LSHFT           &my_mt LG(TAB) Z   &my_mt LG(GRAVE) X     &my_mt LG(C) C   &my_mt LG(V) V         &my_mt LG(LA(F8)) B                               &my_mt LA(N) N       &my_mt LG(LA(F9)) M   &kp COMMA       &my_mt LG(LC(LA(LS(6)))) DOT   &kp FSLH            &kp RSHFT
                                                                                  &none                  &lt LAYER_Symb BSPC   &kp SPACE       &kp SPACE   &lt LAYER_Subl RET   &none
             >;
