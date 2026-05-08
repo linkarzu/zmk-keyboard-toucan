@@ -7,7 +7,7 @@
 // https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
 #include <dt-bindings/zmk/pointing.h>
 
-#define LAYER_Base 0
+#define LAYER_macOS 0
 #define LAYER_Windows 1
 #define LAYER_Nav 2
 #define LAYER_Symb 3
@@ -114,13 +114,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        layer_Base {
-            display-name = "BASE";
+        layer_macOS {
+            display-name = "macOS";
             bindings = <
 //    ┌────────────────────┬────────────────────┬────────────────────────┬──────────────────┬──────────────────────────┬─────────────────────────┐               ┌─────────────────────┬─────────────────────────┬───────────────┬────────────────────────────────────┬───────────────┬──────┐
 //    │   &my_mt ent tab   │         Q          │ &my_lt laltYER_Systm W │ &my_mt lalt(E) E │ &my_mt lctl(lgui(f19)) R │ &my_mt lgui(lalt(f1)) T │               │          Y          │    &my_mt lgui(Z) U     │       I       │ &my_mt lgui(lctl(lalt(lsft(Z)))) O │       P       │  \   │
 //    ├────────────────────┼────────────────────┼────────────────────────┼──────────────────┼──────────────────────────┼─────────────────────────┤               ├─────────────────────┼─────────────────────────┼───────────────┼────────────────────────────────────┼───────────────┼──────┤
-//    │ lt laltYER_Nav esc │   &hrm_l lctl A    │     &hrm_l lsft S      │  &hrm_l lalt D   │      &hrm_l lgui F       │    &my_mt lctl(Z) G     │               │          H          │      &hrm_r rgui J      │ &hrm_r ralt K │           &hrm_r rsft L            │ &hrm_r rctl ; │  '   │
+//    │ lt laltYER_Nav esc │   &hrm_l lctl A    │     &hrm_l lsft S      │  &hrm_l lalt D   │      &hrm_l lgui F       │    &my_mt lctl(Z) G     │               │  &h_third_app 0 H   │      &hrm_r rgui J      │ &hrm_r ralt K │           &hrm_r rsft L            │ &hrm_r rctl ; │  '   │
 //    ├────────────────────┼────────────────────┼────────────────────────┼──────────────────┼──────────────────────────┼─────────────────────────┤               ├─────────────────────┼─────────────────────────┼───────────────┼────────────────────────────────────┼───────────────┼──────┤
 //    │        lsft        │ &my_mt lgui(tab) Z │    &my_mt lgui(`) X    │ &my_mt lgui(C) C │     &my_mt lgui(V) V     │ &my_mt lgui(lalt(f8)) B │               │  &my_mt lalt(N) N   │ &my_mt lgui(lalt(f9)) M │       ,       │ &my_mt lgui(lctl(lalt(lsft(6)))) . │       /       │ rsft │
 //    └────────────────────┴────────────────────┴────────────────────────┴──────────────────┼──────────────────────────┼─────────────────────────┼─────┐   ┌─────┼─────────────────────┼─────────────────────────┼───────────────┴────────────────────────────────────┴───────────────┴──────┘
