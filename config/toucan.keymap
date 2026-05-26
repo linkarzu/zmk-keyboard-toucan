@@ -29,7 +29,7 @@
 
 / {
     behaviors {
-        // Testing urob's timeless home-row mods
+        // Testing urob's timeless home-row mods:
         // https://github.com/urob/zmk-config#timeless-homerow-mods
         // Cross-hand shortcuts can resolve immediately; same-hand shortcuts still
         // require holding past tapping-term-ms before pressing the next key.
