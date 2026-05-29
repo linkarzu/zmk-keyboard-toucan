@@ -196,12 +196,12 @@
 //    ├─────────────────────────────┼───────────────────────────┼───────────────────────────┼───────────────────────────┼─────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
 //    │                             │                           │                           │                           │         │ lgui(lctl(lalt(lsft(B)))) │                │                  │                  │                │                  │                           │     │
 //    └─────────────────────────────┴───────────────────────────┴───────────────────────────┴───────────────────────────┼─────────┼───────────────────────────┼──────┐   ┌─────┼──────────────────┼──────────────────┼────────────────┴──────────────────┴───────────────────────────┴─────┘
-//                                                                                                                      │         │           rclk            │ mclk │   │     │                  │                  │
+//                                                                                                                      │         │           rclk            │ mclk │   │     │       caps       │                  │
 //                                                                                                                      └─────────┴───────────────────────────┴──────┘   └─────┴──────────────────┴──────────────────┘
   &kp LG(LC(LA(LS(TAB))))   &kp LG(LC(LA(LS(N0))))      &kp LG(LC(LA(LS(W))))    &kp LG(LC(LA(LS(D))))   &trans         &kp LG(LC(LA(LS(T))))                            &kp LA(LS(LEFT))   &kp LA(LS(DOWN))   &kp LA(LS(UP))   &kp LA(LS(RIGHT))   &trans                     &trans
   &trans                    &kp LG(LC(LA(LS(EQUAL))))   &kp LG(LC(LA(LS(N9))))   &kp LG(LBKT)            &kp LG(RBKT)   &kp LG(LC(LA(LS(G))))                            &kp LEFT           &kp DOWN           &kp UP           &kp RIGHT           &kp LG(LC(LA(LS(SEMI))))   &trans
   &trans                    &trans                      &trans                   &trans                  &trans         &kp LG(LC(LA(LS(B))))                            &trans             &trans             &trans           &trans              &trans                     &trans
-                                                                                                         &trans         &mkp RCLK               &mkp MCLK       &trans   &trans             &trans
+                                                                                                         &trans         &mkp RCLK               &mkp MCLK       &trans   &kp CAPSLOCK       &trans
             >;
         };
 
