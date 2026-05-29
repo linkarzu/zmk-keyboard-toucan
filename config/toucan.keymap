@@ -36,11 +36,18 @@
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            // How long a plain hold waits before becoming the modifier.
+            // Cross-hand shortcuts can still resolve sooner via balanced + hold-trigger-key-positions.
             tapping-term-ms = <300>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
+            // If this HRM is tapped and quickly pressed again, keep the second press as a tap.
+            // Useful for repeating letters without the second press becoming the modifier.
             quick-tap-ms = <300>;
-            require-prior-idle-ms = <150>;
+            // If pressed within 125ms after a normal key, force a tap so fast typing stays immediate.
+            // Lower this if intended HRM shifts/mods are blocked while typing quickly;
+            // raise it if fast rolls accidentally trigger modifiers.
+            require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
         };
@@ -52,21 +59,21 @@
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
             quick-tap-ms = <300>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
 
-        // Windows keeps the faster 200ms timing, split by hand so positional
+        // Windows keeps faster timing than macOS, split by hand so positional
         // hold-trigger keys can remain opposite-hand only.
         hrm_w_l: hrm_w_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <150>;
+            quick-tap-ms = <250>;
+            require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
             retro-tap;
@@ -75,11 +82,11 @@
         hrm_w_r: hrm_w_r {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <150>;
+            quick-tap-ms = <250>;
+            require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
             retro-tap;
