@@ -155,9 +155,9 @@
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
             // Keeps hold-tap combos held until both combo keys are released.
             slow-release;
-            // Physical positions for Q and W.
-            key-positions = <1 2>;
-            // Only active on macOS, so Q+W can mean something else on other layers.
+            // Physical positions for W and E.
+            key-positions = <2 3>;
+            // Only active on macOS, so W+E can mean something else on other layers.
             layers = <LAYER_macOS>;
             // Reuses my existing hold-tap: hold sends RET, tap sends TAB.
             bindings = <&my_mt RET TAB>;
@@ -167,7 +167,7 @@
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
             slow-release;
-            key-positions = <1 2>;
+            key-positions = <2 3>;
             layers = <LAYER_Windows>;
             bindings = <&my_mtw RET TAB>;
         };
@@ -176,7 +176,7 @@
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
             slow-release;
-            key-positions = <13 14>;
+            key-positions = <14 15>;
             layers = <LAYER_macOS LAYER_Windows>;
             bindings = <&lt LAYER_Nav ESC>;
         };
@@ -184,7 +184,7 @@
         combo_bslh {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <9 10>;
+            key-positions = <8 9>;
             layers = <LAYER_macOS LAYER_Windows>;
             bindings = <&kp BSLH>;
         };
@@ -192,7 +192,7 @@
         combo_sqt {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
             layers = <LAYER_macOS LAYER_Windows>;
             bindings = <&kp SQT>;
         };
@@ -200,7 +200,7 @@
         combo_nav_super_tab {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <15 16>;
+            key-positions = <13 16>;
             layers = <LAYER_Nav>;
             bindings = <&kp LG(LC(LA(LS(TAB))))>;
         };
@@ -208,7 +208,7 @@
         combo_sym_under {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <1 2>;
+            key-positions = <2 3>;
             layers = <LAYER_Symb>;
             bindings = <&kp LS(MINUS)>;
         };
@@ -216,7 +216,7 @@
         combo_sym_tilde {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <13 14>;
+            key-positions = <14 15>;
             layers = <LAYER_Symb>;
             bindings = <&kp LS(GRAVE)>;
         };
@@ -224,7 +224,7 @@
         combo_sym_plus {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <25 26>;
+            key-positions = <26 27>;
             layers = <LAYER_Symb>;
             bindings = <&kp LS(EQUAL)>;
         };
@@ -232,7 +232,7 @@
         combo_sym_minus {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <9 10>;
+            key-positions = <8 9>;
             layers = <LAYER_Symb>;
             bindings = <&kp MINUS>;
         };
@@ -240,7 +240,7 @@
         combo_sym_grave {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
             layers = <LAYER_Symb>;
             bindings = <&kp GRAVE>;
         };
@@ -248,7 +248,7 @@
         combo_sym_equal {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <33 34>;
+            key-positions = <32 33>;
             layers = <LAYER_Symb>;
             bindings = <&kp EQUAL>;
         };
@@ -256,7 +256,7 @@
         combo_apps_r_top {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <9 10>;
+            key-positions = <8 9>;
             layers = <LAYER_Apps>;
             bindings = <&kp LS(LC(F11))>;
         };
@@ -264,7 +264,7 @@
         combo_apps_r_home {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
             layers = <LAYER_Apps>;
             bindings = <&kp LC(LA(F13))>;
         };
@@ -272,7 +272,7 @@
         combo_apps_r_bottom {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <33 34>;
+            key-positions = <32 33>;
             layers = <LAYER_Apps>;
             bindings = <&kp LC(LA(F11))>;
         };
@@ -335,19 +335,19 @@
         layer_Nav {
                   display-name = "NAVI";
             bindings = <
-//    ┌──────────────────┬───────────────────────────┬───────────────────────────┬───────────────────────────┬─────────┬───────────────────────────┐                ┌──────────────────┬──────────────────┬────────────────┬──────────────────┬───────────────────────────┬─────┐
-//    │ mo laltYER_Block │ lgui(lctl(lalt(lsft(0)))) │ lgui(lctl(lalt(lsft(W)))) │ lgui(lctl(lalt(lsft(D)))) │         │ lgui(lctl(lalt(lsft(T)))) │                │ lalt(lsft(left)) │ lalt(lsft(down)) │ lalt(lsft(up)) │ lalt(lsft(rght)) │                           │     │
-//    ├──────────────────┼───────────────────────────┼───────────────────────────┼───────────────────────────┼─────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
-//    │                  │ lgui(lctl(lalt(lsft(=)))) │ lgui(lctl(lalt(lsft(9)))) │          lgui([)          │ lgui(]) │ lgui(lctl(lalt(lsft(G)))) │                │       left       │       down       │       up       │       rght       │ lgui(lctl(lalt(lsft(;)))) │     │
-//    ├──────────────────┼───────────────────────────┼───────────────────────────┼───────────────────────────┼─────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
-//    │                  │                           │                           │                           │         │ lgui(lctl(lalt(lsft(B)))) │                │                  │                  │                │                  │                           │     │
-//    └──────────────────┴───────────────────────────┴───────────────────────────┴───────────────────────────┼─────────┼───────────────────────────┼──────┐   ┌─────┼──────────────────┼──────────────────┼────────────────┴──────────────────┴───────────────────────────┴─────┘
-//                                                                                                           │         │           rclk            │ mclk │   │     │       caps       │                  │
-//                                                                                                           └─────────┴───────────────────────────┴──────┘   └─────┴──────────────────┴──────────────────┘
-  &mo LAYER_Block   &kp LG(LC(LA(LS(N0))))      &kp LG(LC(LA(LS(W))))    &kp LG(LC(LA(LS(D))))   &trans         &kp LG(LC(LA(LS(T))))                            &kp LA(LS(LEFT))   &kp LA(LS(DOWN))   &kp LA(LS(UP))   &kp LA(LS(RIGHT))   &trans                     &trans
-  &trans            &kp LG(LC(LA(LS(EQUAL))))   &kp LG(LC(LA(LS(N9))))   &kp LG(LBKT)            &kp LG(RBKT)   &kp LG(LC(LA(LS(G))))                            &kp LEFT           &kp DOWN           &kp UP           &kp RIGHT           &kp LG(LC(LA(LS(SEMI))))   &trans
-  &trans            &trans                      &trans                   &trans                  &trans         &kp LG(LC(LA(LS(B))))                            &trans             &trans             &trans           &trans              &trans                     &trans
-                                                                                                 &trans         &mkp RCLK               &mkp MCLK       &trans   &kp CAPSLOCK       &trans
+//    ┌──────────────────┬───────────────────────────┬─────┬─────┬───────────────────────────┬───────────────────────────┐                ┌──────────────────┬──────────────────┬────────────────┬──────────────────┬───────────────────────────┬─────┐
+//    │ mo laltYER_Block │ lgui(lctl(lalt(lsft(0)))) │     │     │ lgui(lctl(lalt(lsft(W)))) │ lgui(lctl(lalt(lsft(D)))) │                │ lalt(lsft(left)) │ lalt(lsft(down)) │ lalt(lsft(up)) │ lalt(lsft(rght)) │                           │     │
+//    ├──────────────────┼───────────────────────────┼─────┼─────┼───────────────────────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
+//    │                  │ lgui(lctl(lalt(lsft(=)))) │     │     │          lgui(])          │ lgui(lctl(lalt(lsft(G)))) │                │       left       │       down       │       up       │       rght       │ lgui(lctl(lalt(lsft(;)))) │     │
+//    ├──────────────────┼───────────────────────────┼─────┼─────┼───────────────────────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
+//    │                  │ lgui(lctl(lalt(lsft(9)))) │     │     │          lgui([)          │ lgui(lctl(lalt(lsft(B)))) │                │                  │                  │                │                  │                           │     │
+//    └──────────────────┴───────────────────────────┴─────┴─────┼───────────────────────────┼───────────────────────────┼──────┐   ┌─────┼──────────────────┼──────────────────┼────────────────┴──────────────────┴───────────────────────────┴─────┘
+//                                                               │                           │           rclk            │ mclk │   │     │       caps       │                  │
+//                                                               └───────────────────────────┴───────────────────────────┴──────┘   └─────┴──────────────────┴──────────────────┘
+  &mo LAYER_Block   &kp LG(LC(LA(LS(N0))))      &trans   &trans   &kp LG(LC(LA(LS(W))))   &kp LG(LC(LA(LS(D))))                            &kp LA(LS(LEFT))   &kp LA(LS(DOWN))   &kp LA(LS(UP))   &kp LA(LS(RIGHT))   &trans                     &trans
+  &trans            &kp LG(LC(LA(LS(EQUAL))))   &trans   &trans   &kp LG(RBKT)            &kp LG(LC(LA(LS(G))))                            &kp LEFT           &kp DOWN           &kp UP           &kp RIGHT           &kp LG(LC(LA(LS(SEMI))))   &trans
+  &trans            &kp LG(LC(LA(LS(N9))))      &trans   &trans   &kp LG(LBKT)            &kp LG(LC(LA(LS(B))))                            &trans             &trans             &trans           &trans              &trans                     &trans
+                                                                  &trans                  &mkp RCLK               &mkp MCLK       &trans   &kp CAPSLOCK       &trans
             >;
         };
 
