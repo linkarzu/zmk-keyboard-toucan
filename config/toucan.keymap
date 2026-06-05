@@ -182,6 +182,14 @@
             bindings = <&lt LAYER_Nav ESC>;
         };
 
+        combo_df_space {
+            timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
+            require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
+            key-positions = <15 16>;
+            layers = <LAYER_macOS LAYER_Windows>;
+            bindings = <&kp SPACE>;
+        };
+
         combo_bslh {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
