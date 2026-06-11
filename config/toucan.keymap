@@ -286,14 +286,6 @@
             bindings = <&kp LC(LA(F11))>;
         };
 
-        combo_systm_close_window {
-            timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
-            require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <3 4>;
-            layers = <LAYER_Systm>;
-            bindings = <&kp LG(W)>;
-        };
-
     };
 };
 
@@ -448,12 +440,12 @@
 //    ├──────────────────┼────────────────┼─────┼──────┼──────────────────────────┼────────────────┤               ├────────────────┼────────────────┼──────┼───────────────┼──────┼─────┤
 //    │                  │                │     │      │                          │                │               │ lgui(lalt(f5)) │ lgui(lalt(f7)) │      │               │      │     │
 //    └──────────────────┴────────────────┴─────┴──────┼──────────────────────────┼────────────────┼─────┐   ┌─────┼────────────────┼────────────────┼──────┴───────────────┴──────┴─────┘
-//                                                     │                          │                │     │   │     │                │                │
+//                                                     │                          │    lgui(W)     │     │   │     │                │                │
 //                                                     └──────────────────────────┴────────────────┴─────┘   └─────┴────────────────┴────────────────┘
   &trans            &kp LG(LA(F2))   &trans   &kp K_VOL_UP   &lt LAYER_Yabai LG(EQUAL)   &kp LG(LA(F3))                         &kp C_PREV         &kp C_BRI_DN     &kp C_BRI_UP   &kp C_NEXT         &kp C_PP   &trans
   &mo LAYER_Block   &kp LG(LC(Q))    &trans   &kp K_VOL_DN   &kp LG(MINUS)               &kp LG(LA(F4))                         &kp LG(LS(LBKT))   &kp LG(LA(F6))   &trans         &kp LG(LS(RBKT))   &trans     &trans
   &trans            &trans           &trans   &trans         &trans                      &trans                                 &kp LG(LA(F5))     &kp LG(LA(F7))   &trans         &trans             &trans     &trans
-                                                             &trans                      &trans           &trans       &trans   &trans             &trans
+                                                             &trans                      &kp LG(W)        &trans       &trans   &trans             &trans
             >;
         };
 
