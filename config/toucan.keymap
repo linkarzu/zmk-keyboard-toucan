@@ -206,14 +206,6 @@
             bindings = <&kp SQT>;
         };
 
-        combo_nav_super_tab {
-            timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
-            require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
-            key-positions = <13 16>;
-            layers = <LAYER_Nav>;
-            bindings = <&kp LG(LC(LA(LS(TAB))))>;
-        };
-
         combo_sym_under {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
@@ -336,19 +328,19 @@
         layer_Nav {
                   display-name = "NAVI";
             bindings = <
-//    ┌──────────────────┬───────────────────────────┬─────┬─────┬───────────────────────────┬───────────────────────────┐                ┌──────────────────┬──────────────────┬────────────────┬──────────────────┬───────────────────────────┬─────┐
-//    │ mo laltYER_Block │ lgui(lctl(lalt(lsft(0)))) │     │     │          lgui(])          │ lgui(lctl(lalt(lsft(D)))) │                │ lalt(lsft(left)) │ lalt(lsft(down)) │ lalt(lsft(up)) │ lalt(lsft(rght)) │                           │     │
-//    ├──────────────────┼───────────────────────────┼─────┼─────┼───────────────────────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
-//    │                  │ lgui(lctl(lalt(lsft(=)))) │     │     │ lgui(lctl(lalt(lsft(W)))) │ lgui(lctl(lalt(lsft(G)))) │                │       left       │       down       │       up       │       rght       │ lgui(lctl(lalt(lsft(;)))) │     │
-//    ├──────────────────┼───────────────────────────┼─────┼─────┼───────────────────────────┼───────────────────────────┤                ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
-//    │                  │ lgui(lctl(lalt(lsft(9)))) │     │     │          lgui([)          │ lgui(lctl(lalt(lsft(B)))) │                │                  │                  │                │                  │                           │     │
-//    └──────────────────┴───────────────────────────┴─────┴─────┼───────────────────────────┼───────────────────────────┼──────┐   ┌─────┼──────────────────┼──────────────────┼────────────────┴──────────────────┴───────────────────────────┴─────┘
-//                                                               │                           │           rclk            │ mclk │   │     │       caps       │                  │
-//                                                               └───────────────────────────┴───────────────────────────┴──────┘   └─────┴──────────────────┴──────────────────┘
-  &mo LAYER_Block   &kp LG(LC(LA(LS(N0))))      &trans   &trans   &kp LG(RBKT)            &kp LG(LC(LA(LS(D))))                            &kp LA(LS(LEFT))   &kp LA(LS(DOWN))   &kp LA(LS(UP))   &kp LA(LS(RIGHT))   &trans                     &trans
-  &trans            &kp LG(LC(LA(LS(EQUAL))))   &trans   &trans   &kp LG(LC(LA(LS(W))))   &kp LG(LC(LA(LS(G))))                            &kp LEFT           &kp DOWN           &kp UP           &kp RIGHT           &kp LG(LC(LA(LS(SEMI))))   &trans
-  &trans            &kp LG(LC(LA(LS(N9))))      &trans   &trans   &kp LG(LBKT)            &kp LG(LC(LA(LS(B))))                            &trans             &trans             &trans           &trans              &trans                     &trans
-                                                                  &trans                  &mkp RCLK               &mkp MCLK       &trans   &kp CAPSLOCK       &trans
+//    ┌──────────────────┬───────────────────────────┬─────┬─────┬───────────────────────────┬───────────────────────────┐                                        ┌──────────────────┬──────────────────┬────────────────┬──────────────────┬───────────────────────────┬─────┐
+//    │ mo laltYER_Block │ lgui(lctl(lalt(lsft(0)))) │     │     │          lgui(])          │ lgui(lctl(lalt(lsft(D)))) │                                        │ lalt(lsft(left)) │ lalt(lsft(down)) │ lalt(lsft(up)) │ lalt(lsft(rght)) │                           │     │
+//    ├──────────────────┼───────────────────────────┼─────┼─────┼───────────────────────────┼───────────────────────────┤                                        ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
+//    │                  │ lgui(lctl(lalt(lsft(=)))) │     │     │ lgui(lctl(lalt(lsft(W)))) │ lgui(lctl(lalt(lsft(G)))) │                                        │       left       │       down       │       up       │       rght       │ lgui(lctl(lalt(lsft(;)))) │     │
+//    ├──────────────────┼───────────────────────────┼─────┼─────┼───────────────────────────┼───────────────────────────┤                                        ├──────────────────┼──────────────────┼────────────────┼──────────────────┼───────────────────────────┼─────┤
+//    │                  │ lgui(lctl(lalt(lsft(9)))) │     │     │          lgui([)          │ lgui(lctl(lalt(lsft(B)))) │                                        │                  │                  │                │                  │                           │     │
+//    └──────────────────┴───────────────────────────┴─────┴─────┼───────────────────────────┼───────────────────────────┼──────┐   ┌─────────────────────────────┼──────────────────┼──────────────────┼────────────────┴──────────────────┴───────────────────────────┴─────┘
+//                                                               │                           │           rclk            │ mclk │   │ lgui(lctl(lalt(lsft(tab)))) │       caps       │                  │
+//                                                               └───────────────────────────┴───────────────────────────┴──────┘   └─────────────────────────────┴──────────────────┴──────────────────┘
+  &mo LAYER_Block   &kp LG(LC(LA(LS(N0))))      &trans   &trans   &kp LG(RBKT)            &kp LG(LC(LA(LS(D))))                                             &kp LA(LS(LEFT))   &kp LA(LS(DOWN))   &kp LA(LS(UP))   &kp LA(LS(RIGHT))   &trans                     &trans
+  &trans            &kp LG(LC(LA(LS(EQUAL))))   &trans   &trans   &kp LG(LC(LA(LS(W))))   &kp LG(LC(LA(LS(G))))                                             &kp LEFT           &kp DOWN           &kp UP           &kp RIGHT           &kp LG(LC(LA(LS(SEMI))))   &trans
+  &trans            &kp LG(LC(LA(LS(N9))))      &trans   &trans   &kp LG(LBKT)            &kp LG(LC(LA(LS(B))))                                             &trans             &trans             &trans           &trans              &trans                     &trans
+                                                                  &trans                  &mkp RCLK               &mkp MCLK       &kp LG(LC(LA(LS(TAB))))   &kp CAPSLOCK       &trans
             >;
         };
 
