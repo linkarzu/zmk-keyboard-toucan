@@ -371,12 +371,12 @@
 //    ├──────────────────┼─────────┼─────────┼─────────┼─────────┼─────────┤               ├─────────┼─────────┼─────────┼─────────┼─────────┼──────────────────┤
 //    │ mo laltYER_Block │ lsft(,) │ lsft(.) │ lsft(/) │    [    │    ]    │               │ lsft([) │ lsft(]) │    ,    │    .    │    /    │ mo laltYER_Block │
 //    └──────────────────┴─────────┴─────────┴─────────┼─────────┼─────────┼─────┐   ┌─────┼─────────┼─────────┼─────────┴─────────┴─────────┴──────────────────┘
-//                                                     │         │         │     │   │     │         │         │
+//                                                     │         │         │ boot │   │     │         │         │
 //                                                     └─────────┴─────────┴─────┘   └─────┴─────────┴─────────┘
   &mo LAYER_Block   &kp LS(N1)      &kp LS(N2)    &kp LS(N3)     &kp LS(N4)   &kp LS(N5)                         &kp LS(N6)     &kp LS(N7)     &kp LS(N8)   &kp LS(N9)   &kp LS(N0)   &mo LAYER_Block
   &mo LAYER_Block   &kp N1          &kp N2        &kp N3         &kp N4       &kp N5                             &kp N6         &kp N7         &kp N8       &kp N9       &kp N0       &mo LAYER_Block
   &mo LAYER_Block   &kp LS(COMMA)   &kp LS(DOT)   &kp LS(FSLH)   &kp LBKT     &kp RBKT                           &kp LS(LBKT)   &kp LS(RBKT)   &kp COMMA    &kp DOT      &kp FSLH     &mo LAYER_Block
-                                                                 &trans       &trans       &trans       &trans   &trans         &trans
+                                                                 &trans       &trans       &bootloader       &trans   &trans         &trans
             >;
         };
 
@@ -391,12 +391,12 @@
 //    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤               ├─────┼─────┼─────┼────────────────┼─────┼─────┤
 //    │     │     │                    │     │                    │ mo laltYER_Bluetooth │               │     │     │     │                │     │     │
 //    └─────┴─────┴────────────────────┴─────┼────────────────────┼──────────────────────┼─────┐   ┌─────┼─────┼─────┼─────┴────────────────┴─────┴─────┘
-//                                           │                    │   mo laltYER_Apps    │     │   │     │     │     │
+//                                           │                    │   mo laltYER_Apps    │     │   │ boot │     │     │
 //                                           └────────────────────┴──────────────────────┴─────┘   └─────┴─────┴─────┘
   &trans   &trans   &mo LAYER_Work      &trans   &mo LAYER_Raycast   &mo LAYER_Sesss                             &trans   &trans   &trans   &mo LAYER_Obs   &trans   &trans
   &trans   &trans   &mo LAYER_Letters   &trans   &trans              &trans                                      &trans   &trans   &trans   &trans          &trans   &trans
   &trans   &trans   &trans              &trans   &trans              &mo LAYER_Bluetooth                         &trans   &trans   &trans   &trans          &trans   &trans
-                                                 &trans              &mo LAYER_Apps        &trans       &trans   &trans   &trans
+                                                 &trans              &mo LAYER_Apps        &trans       &bootloader   &trans   &trans
             >;
         };
 
