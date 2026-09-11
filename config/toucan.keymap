@@ -212,7 +212,7 @@
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
             key-positions = <3 4>;
             layers = <LAYER_macOS LAYER_Windows>;
-            bindings = <&kp LG(LC(LA(LS(F20))))>;
+            bindings = <&kp LG(LC(LA(LS(S))))>;
         };
 
         combo_bslh {
