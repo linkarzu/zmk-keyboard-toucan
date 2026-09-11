@@ -207,6 +207,14 @@
             bindings = <&kp SPACE>;
         };
 
+        combo_er_speech {
+            timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
+            require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
+            key-positions = <3 4>;
+            layers = <LAYER_macOS LAYER_Windows>;
+            bindings = <&kp LG(LC(LA(LS(F20))))>;
+        };
+
         combo_bslh {
             timeout-ms = <TRANSITION_COMBO_TIMEOUT_MS>;
             require-prior-idle-ms = <TRANSITION_COMBO_PRIOR_IDLE_MS>;
