@@ -23,6 +23,7 @@
 #define LAYER_Obspos 13
 #define LAYER_Work 14
 #define LAYER_Block 15
+#define LAYER_Fkeys 16
 
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
@@ -395,14 +396,14 @@
 //    ┌─────┬─────┬────────────────────┬─────┬────────────────────┬──────────────────────┐                ┌─────┬─────┬─────┬────────────────┬─────┬─────┐
 //    │     │     │  mo laltYER_Work   │     │ mo laltYER_Raycast │   mo laltYER_Sesss   │                │     │     │     │ mo laltYER_Obs │     │     │
 //    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤                ├─────┼─────┼─────┼────────────────┼─────┼─────┤
-//    │     │     │ mo laltYER_Letters │     │                    │                      │                │     │     │     │                │     │     │
+//    │     │     │ mo laltYER_Letters │     │  mo laltYER_Fkeys  │                      │                │     │     │     │                │     │     │
 //    ├─────┼─────┼────────────────────┼─────┼────────────────────┼──────────────────────┤                ├─────┼─────┼─────┼────────────────┼─────┼─────┤
 //    │     │     │                    │     │                    │ mo laltYER_Bluetooth │                │     │     │     │                │     │     │
 //    └─────┴─────┴────────────────────┴─────┼────────────────────┼──────────────────────┼─────┐   ┌──────┼─────┼─────┼─────┴────────────────┴─────┴─────┘
 //                                           │                    │   mo laltYER_Apps    │     │   │ boot │     │     │
 //                                           └────────────────────┴──────────────────────┴─────┘   └──────┴─────┴─────┘
   &trans   &trans   &mo LAYER_Work      &trans   &mo LAYER_Raycast   &mo LAYER_Sesss                                  &trans   &trans   &trans   &mo LAYER_Obs   &trans   &trans
-  &trans   &trans   &mo LAYER_Letters   &trans   &trans              &trans                                           &trans   &trans   &trans   &trans          &trans   &trans
+  &trans   &trans   &mo LAYER_Letters   &trans   &mo LAYER_Fkeys     &trans                                           &trans   &trans   &trans   &trans          &trans   &trans
   &trans   &trans   &trans              &trans   &trans              &mo LAYER_Bluetooth                              &trans   &trans   &trans   &trans          &trans   &trans
                                                  &trans              &mo LAYER_Apps        &trans       &bootloader   &trans   &trans
             >;
@@ -624,6 +625,25 @@
   &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
   &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
                                   &none   &none   &none       &none   &none   &none
+            >;
+        };
+
+        layer_Fkeys {
+            display-name = "FKEY";
+            bindings = <
+//    ┌─────┬──────┬──────┬──────┬─────┬─────┐               ┌─────┬─────┬─────┬─────┬─────┬─────┐
+//    │     │      │      │      │     │     │               │     │ f9  │ f10 │ f11 │ f12 │     │
+//    ├─────┼──────┼──────┼──────┼─────┼─────┤               ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │ lctl │ lsft │ lalt │     │     │               │     │ f5  │ f6  │ f7  │ f8  │     │
+//    ├─────┼──────┼──────┼──────┼─────┼─────┤               ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │      │      │      │     │     │               │     │ f1  │ f2  │ f3  │ f4  │     │
+//    └─────┴──────┴──────┴──────┼─────┼─────┼─────┐   ┌─────┼─────┼─────┼─────┴─────┴─────┴─────┘
+//                               │     │     │     │   │     │     │     │
+//                               └─────┴─────┴─────┘   └─────┴─────┴─────┘
+  &trans   &trans      &trans      &trans     &trans   &trans                         &trans   &kp F9   &kp F10   &kp F11   &kp F12   &trans
+  &trans   &kp LCTRL   &kp LSHFT   &kp LALT   &trans   &trans                         &trans   &kp F5   &kp F6    &kp F7    &kp F8    &trans
+  &trans   &trans      &trans      &trans     &trans   &trans                         &trans   &kp F1   &kp F2    &kp F3    &kp F4    &trans
+                                              &trans   &trans   &trans       &trans   &trans   &trans
             >;
         };
 
