@@ -25,62 +25,57 @@
 #define LAYER_Block 15
 #define LAYER_Fkeys 16
 
-#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
-#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
-#define THUMBS 36 37 38 39 40 41
 #define HRM_PRIOR_IDLE_MS 150
-// Raise this if rolls still trigger mods; lower it if shortcuts feel slow.
+// How long a mod key must be held by itself before it becomes the modifier.
 #define HRM_TAPPING_TERM_MS 200
 #define HRM_QUICK_TAP_MS 175
+// Not a real key position. Using it as the only hold-trigger key means any other key
+// pressed while a hold-tap is undecided forces a tap (see hrm_l).
+#define NO_HOLD_TRIGGER_KEYS 999
 
 / {
     behaviors {
-        // Time-based home-row mods (switched back from urob's timeless/balanced HRMs,
-        // which turned sloppy rolls like A-N into Command+N).
-        // A mod only activates after being held for tapping-term-ms; rolls can't trigger it.
-        // Cross-hand shortcuts: hold the mod briefly, then press the other key.
+        // "Tap if interrupted" home-row mods: a mod only activates when held by itself for
+        // tapping-term-ms. If any other key is pressed first (e.g. an A-N roll), it's a tap.
+        // Shortcuts: hold the mod alone briefly, then press the other key.
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-            // Only time decides hold vs. tap; pressing other keys while undecided does not.
-            flavor = "tap-preferred";
+            // Another key press decides "hold" immediately, then the positional check below
+            // turns it into a tap because no real key is a hold-trigger key.
+            // Holding this key alone until tapping-term-ms is the only way to get the modifier.
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
             tapping-term-ms = <HRM_TAPPING_TERM_MS>;
             // If this HRM is tapped and quickly pressed again, keep the second press as a tap.
             // Useful for repeating letters without the second press becoming the modifier.
             quick-tap-ms = <HRM_QUICK_TAP_MS>;
             // If pressed within this window after a normal key, force a tap so fast typing stays immediate.
             require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
-            // Same-hand keys resolve this HRM as a tap immediately.
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            // Check positions on release so same-hand mods can still be stacked (e.g. Command+Shift).
-            hold-trigger-on-release;
         };
 
         hrm_r: hrm_r {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
             tapping-term-ms = <HRM_TAPPING_TERM_MS>;
             quick-tap-ms = <HRM_QUICK_TAP_MS>;
             require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
         };
 
-        // Windows uses the same timing, plus retro-tap,
-        // split by hand so positional hold-trigger keys can remain opposite-hand only.
+        // Windows uses the same behavior, plus retro-tap.
         hrm_w_l: hrm_w_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
             tapping-term-ms = <HRM_TAPPING_TERM_MS>;
             quick-tap-ms = <HRM_QUICK_TAP_MS>;
             require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
             retro-tap;
         };
 
@@ -88,12 +83,11 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
             tapping-term-ms = <HRM_TAPPING_TERM_MS>;
             quick-tap-ms = <HRM_QUICK_TAP_MS>;
             require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
             retro-tap;
         };
 
@@ -121,11 +115,15 @@
             bindings = <&kp>, <&kp>;
         };
 
+        // Same "tap if interrupted" rule as the HRMs: only switches apps when H is held by itself,
+        // so rolls like "ha" stay as letters.
         h_third_app: h_third_app {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
             tapping-term-ms = <300>;
+            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
             bindings = <&third_app>, <&kp>;
         };
 
