@@ -25,69 +25,35 @@
 #define LAYER_Block 15
 #define LAYER_Fkeys 16
 
-#define HRM_PRIOR_IDLE_MS 150
-// How long a mod key must be held by itself before it becomes the modifier.
-#define HRM_TAPPING_TERM_MS 200
-#define HRM_QUICK_TAP_MS 175
-// Not a real key position. Using it as the only hold-trigger key means any other key
-// pressed while a hold-tap is undecided forces a tap (see hrm_l).
-#define NO_HOLD_TRIGGER_KEYS 999
-
 / {
     behaviors {
-        // "Tap if interrupted" home-row mods: a mod only activates when held by itself for
-        // tapping-term-ms. If any other key is pressed first (e.g. an A-N roll), it's a tap.
-        // Shortcuts: hold the mod alone briefly, then press the other key.
+        // Home-row mods: a key only becomes the modifier once it has been held for tapping-term-ms.
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            tapping-term-ms = <300>;
             bindings = <&kp>, <&kp>;
-            // Another key press decides "hold" immediately, then the positional check below
-            // turns it into a tap because no real key is a hold-trigger key.
-            // Holding this key alone until tapping-term-ms is the only way to get the modifier.
-            flavor = "hold-preferred";
-            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
-            tapping-term-ms = <HRM_TAPPING_TERM_MS>;
-            // If this HRM is tapped and quickly pressed again, keep the second press as a tap.
-            // Useful for repeating letters without the second press becoming the modifier.
-            quick-tap-ms = <HRM_QUICK_TAP_MS>;
-            // If pressed within this window after a normal key, force a tap so fast typing stays immediate.
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <300>;
         };
 
         hrm_r: hrm_r {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            tapping-term-ms = <300>;
             bindings = <&kp>, <&kp>;
-            flavor = "hold-preferred";
-            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
-            tapping-term-ms = <HRM_TAPPING_TERM_MS>;
-            quick-tap-ms = <HRM_QUICK_TAP_MS>;
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <300>;
         };
 
-        // Windows uses the same behavior, plus retro-tap.
-        hrm_w_l: hrm_w_l {
+        // Windows home-row mods, both hands.
+        hrm_w: hrm_w {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
-            flavor = "hold-preferred";
-            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
-            tapping-term-ms = <HRM_TAPPING_TERM_MS>;
-            quick-tap-ms = <HRM_QUICK_TAP_MS>;
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
-            retro-tap;
-        };
-
-        hrm_w_r: hrm_w_r {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "hold-preferred";
-            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
-            tapping-term-ms = <HRM_TAPPING_TERM_MS>;
-            quick-tap-ms = <HRM_QUICK_TAP_MS>;
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <200>;
             retro-tap;
         };
 
@@ -115,15 +81,11 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Same "tap if interrupted" rule as the HRMs: only switches apps when H is held by itself,
-        // so rolls like "ha" stay as letters.
         h_third_app: h_third_app {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
-            hold-trigger-key-positions = <NO_HOLD_TRIGGER_KEYS>;
+            flavor = "tap-preferred";
             tapping-term-ms = <300>;
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
             bindings = <&third_app>, <&kp>;
         };
 
@@ -320,14 +282,14 @@
 //    ┌──────────────────┬────────────────────────────────┬────────────────────────────────┬───────────────────┬───────────────────────────┬──────────────────────────┐                ┌─────────────────────┬──────────────────┬─────────────────┬─────────────────┬─────────────────┬──────────────────┐
 //    │ mo laltYER_Block │               Q                │       lt laltYER_Systm W       │         E         │ &my_mtw lctl(lgui(f19)) R │ &my_mtw lgui(lalt(f1)) T │                │          Y          │ &my_mt lctl(Z) U │        I        │        O        │        P        │ mo laltYER_Block │
 //    ├──────────────────┼────────────────────────────────┼────────────────────────────────┼───────────────────┼───────────────────────────┼──────────────────────────┤                ├─────────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────────┼──────────────────┤
-//    │ mo laltYER_Block │        &hrm_w_l lalt A         │        &hrm_w_l lsft S         │  &hrm_w_l lgui D  │      &hrm_w_l lctl F      │     lt laltYER_Nav G     │                │          H          │ &hrm_w_r rctl J  │ &hrm_w_r rgui K │ &hrm_w_r rsft L │ &hrm_w_r ralt ; │ mo laltYER_Block │
+//    │ mo laltYER_Block │        &hrm_w lalt A           │        &hrm_w lsft S           │  &hrm_w lgui D    │      &hrm_w lctl F        │     lt laltYER_Nav G     │                │          H          │ &hrm_w rctl J    │ &hrm_w rgui K   │ &hrm_w rsft L   │ &hrm_w ralt ;   │ mo laltYER_Block │
 //    ├──────────────────┼────────────────────────────────┼────────────────────────────────┼───────────────────┼───────────────────────────┼──────────────────────────┤                ├─────────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────────┼──────────────────┤
 //    │ mo laltYER_Block │ &my_mtw lsft(lalt(lgui(f6))) Z │ &my_mtw lsft(lalt(lgui(f7))) X │ &my_mtw lctl(C) C │     &my_mtw lctl(V) V     │            B             │                │          N          │        M         │        ,        │        .        │        /        │ mo laltYER_Block │
 //    └──────────────────┴────────────────────────────────┴────────────────────────────────┴───────────────────┼───────────────────────────┼──────────────────────────┼──────┐   ┌─────┼─────────────────────┼──────────────────┼─────────────────┴─────────────────┴─────────────────┴──────────────────┘
 //                                                                                                             │                           │   lt laltYER_Symb bspc   │ lsft │   │ spc │ lt laltYER_Subl ent │                  │
 //                                                                                                             └───────────────────────────┴──────────────────────────┴──────┘   └─────┴─────────────────────┴──────────────────┘
   &mo LAYER_Block   &kp Q                      &lt LAYER_Systm W          &kp E             &my_mtw LC(LG(F19)) R   &my_mtw LG(LA(F1)) T                               &kp Y                &my_mt LC(Z) U     &kp I             &kp O              &kp P                &mo LAYER_Block
-  &mo LAYER_Block   &hrm_w_l LALT A            &hrm_w_l LSHFT S           &hrm_w_l LGUI D   &hrm_w_l LCTRL F        &lt LAYER_Nav G                                    &kp H                &hrm_w_r RCTRL J   &hrm_w_r RGUI K   &hrm_w_r RSHFT L   &hrm_w_r RALT SEMI   &mo LAYER_Block
+  &mo LAYER_Block   &hrm_w LALT A              &hrm_w LSHFT S             &hrm_w LGUI D     &hrm_w LCTRL F          &lt LAYER_Nav G                                    &kp H                &hrm_w RCTRL J     &hrm_w RGUI K     &hrm_w RSHFT L     &hrm_w RALT SEMI     &mo LAYER_Block
   &mo LAYER_Block   &my_mtw LS(LA(LG(F6))) Z   &my_mtw LS(LA(LG(F7))) X   &my_mtw LC(C) C   &my_mtw LC(V) V         &kp B                                              &kp N                &kp M              &kp COMMA         &kp DOT            &kp FSLH             &mo LAYER_Block
                                                                                             &none                   &lt LAYER_Symb BSPC    &kp LSHFT       &kp SPACE   &lt LAYER_Subl RET   &none
             >;
