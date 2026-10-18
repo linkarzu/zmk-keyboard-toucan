@@ -401,13 +401,13 @@
 //    ├──────────────────┼────────────────┼─────┼──────┼──────────────────────────┼────────────────┤               ├────────────────┼────────────────┼──────┼───────────────┼──────┼─────┤
 //    │ mo laltYER_Block │ lgui(lctl(Q))  │     │ vold │         lgui(-)          │ lgui(lalt(f4)) │               │ lgui(lsft([))  │ lgui(lalt(f6)) │      │ lgui(lsft(])) │      │     │
 //    ├──────────────────┼────────────────┼─────┼──────┼──────────────────────────┼────────────────┤               ├────────────────┼────────────────┼──────┼───────────────┼──────┼─────┤
-//    │                  │                │     │      │                          │                │               │ lgui(lalt(f5)) │ lgui(lalt(f7)) │      │               │      │     │
+//    │                  │                │     │      │                          │ LS(LA(LG(F19)))│               │ lgui(lalt(f5)) │ lgui(lalt(f7)) │      │               │      │     │
 //    └──────────────────┴────────────────┴─────┴──────┼──────────────────────────┼────────────────┼─────┐   ┌─────┼────────────────┼────────────────┼──────┴───────────────┴──────┴─────┘
 //                                                     │                          │    lgui(W)     │     │   │     │                │                │
 //                                                     └──────────────────────────┴────────────────┴─────┘   └─────┴────────────────┴────────────────┘
   &trans            &kp LG(LA(F2))   &trans   &kp K_VOL_UP   &lt LAYER_Yabai LG(EQUAL)   &kp LG(LA(F3))                         &kp C_PREV         &kp C_BRI_DN     &kp C_BRI_UP   &kp C_NEXT         &kp C_PP   &trans
   &mo LAYER_Block   &kp LG(LC(Q))    &trans   &kp K_VOL_DN   &kp LG(MINUS)               &kp LG(LA(F4))                         &kp LG(LS(LBKT))   &kp LG(LA(F6))   &trans         &kp LG(LS(RBKT))   &trans     &trans
-  &trans            &trans           &trans   &trans         &trans                      &trans                                 &kp LG(LA(F5))     &kp LG(LA(F7))   &trans         &trans             &trans     &trans
+  &trans            &trans           &trans   &trans         &trans                      &kp LS(LA(LG(F19)))                    &kp LG(LA(F5))     &kp LG(LA(F7))   &trans         &trans             &trans     &trans
                                                              &trans                      &kp LG(W)        &trans       &trans   &trans             &trans
             >;
         };
